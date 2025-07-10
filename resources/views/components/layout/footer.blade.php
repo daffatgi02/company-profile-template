@@ -2,12 +2,20 @@
     <div class="container">
         <div class="row gy-4">
             <div class="col-lg-4">
-                <h4 class="text-white mb-4">{{ config('company.name') }}</h4>
-                <p class="text-white-50">Providing innovative solutions for all your needs with cutting-edge technology and professional service.</p>
+                <h4 class="text-white mb-4">{{ config('company.name', 'NAMA_PERUSAHAAN-MU') }}.id</h4>
+                <p class="text-white-50">Providing innovative solutions for all your needs with cutting-edge
+                    technology and professional service.</p>
                 <div class="d-flex mt-4">
-                    @foreach(config('company.social') as $platform => $url)
-                        <a href="{{ $url }}" class="social-icon" aria-label="Visit our {{ ucfirst($platform) }} page">
-                            <i class="fab fa-{{ $platform === 'twitter' ? 'twitter' : $platform }}-{{ $platform === 'linkedin' ? 'in' : ($platform === 'facebook' ? 'f' : '') }} text-white"></i>
+                    @foreach (config('company.social', [
+        'facebook' => '#',
+        'twitter' => '#',
+        'instagram' => '#',
+        'linkedin' => '#',
+    ]) as $platform => $url)
+                        <a href="{{ $url }}" class="social-icon"
+                            aria-label="Visit our {{ ucfirst($platform) }} page">
+                            <i
+                                class="fab fa-{{ $platform === 'twitter' ? 'twitter' : $platform }}{{ $platform === 'linkedin' ? '-in' : ($platform === 'facebook' ? '-f' : '') }} text-white"></i>
                         </a>
                     @endforeach
                 </div>
@@ -35,22 +43,25 @@
                 <address class="list-unstyled text-white-50">
                     <div class="d-flex mb-3">
                         <i class="fas fa-map-marker-alt me-3 mt-1" aria-hidden="true"></i>
-                        <span>{{ config('company.contact.address') }}</span>
+                        <span>{{ config('company.contact.address', '123 Business Street, Jakarta, Indonesia') }}</span>
                     </div>
                     <div class="d-flex mb-3">
                         <i class="fas fa-envelope me-3 mt-1" aria-hidden="true"></i>
-                        <a href="mailto:{{ config('company.contact.email') }}" class="text-white-50">{{ config('company.contact.email') }}</a>
+                        <a href="mailto:{{ config('company.contact.email', 'info@NAMA_PERUSAHAAN-MU.id') }}"
+                            class="text-white-50">{{ config('company.contact.email', 'info@NAMA_PERUSAHAAN-MU.id') }}</a>
                     </div>
                     <div class="d-flex mb-3">
                         <i class="fas fa-phone-alt me-3 mt-1" aria-hidden="true"></i>
-                        <a href="tel:{{ config('company.contact.phone') }}" class="text-white-50">{{ config('company.contact.phone') }}</a>
+                        <a href="tel:{{ config('company.contact.phone', '+62 123 4567 890') }}"
+                            class="text-white-50">{{ config('company.contact.phone', '+62 123 4567 890') }}</a>
                     </div>
                 </address>
             </div>
         </div>
         <hr class="mt-4 bg-white-50">
         <div class="text-center text-white-50 mt-4">
-            <p>&copy; {{ date('Y') }} {{ config('company.name') }}. All Rights Reserved.</p>
+            <p>&copy; {{ date('Y') }} {{ config('company.name', 'NAMA_PERUSAHAAN-MU') }}.id. All Rights Reserved.
+            </p>
         </div>
     </div>
 </footer>

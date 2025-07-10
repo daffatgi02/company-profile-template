@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top py-3" id="mainNav">
     <div class="container">
         <a class="navbar-brand fw-bold" href="{{ route('home') }}">
-            <span class="text-primary">{{ explode('.', config('company.domain'))[0] }}</span>
-            <span class="text-dark">.{{ explode('.', config('company.domain'))[1] ?? 'id' }}</span>
+            <span class="text-primary">{{ explode('.', config('company.domain', 'NAMA_PERUSAHAAN-MU.id'))[0] ?? 'NAMA_PERUSAHAAN-MU' }}</span><span class="text-dark">.id</span>
         </a>
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
@@ -30,9 +29,8 @@
                     <a class="nav-link px-3 mx-1 rounded-pill" href="#contact" aria-label="Go to Contact section">Contact</a>
                 </li>
             </ul>
-            <a href="#contact" class="btn btn-primary rounded-pill ms-lg-4 px-4 py-2 d-none d-lg-block" aria-label="Get started with our services">
-                Get Started
-            </a>
+            <a href="#contact" class="btn btn-primary rounded-pill ms-lg-4 px-4 py-2 d-none d-lg-block" aria-label="Get started with our services">Get
+                Started</a>
         </div>
     </div>
 </nav>
